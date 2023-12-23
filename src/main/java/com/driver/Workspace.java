@@ -30,16 +30,13 @@ public class Workspace extends Gmail{
         // 2. If you want to attend a meeting, you must join it at its start time and leave at end time.
         // Example: If a meeting ends at 10:00 am, you cannot attend another meeting starting at 10:00 am
         // using comparators to sort the arraylist in such a way so that the end time is in sorted order
-        Comparator<Meeting> comp = new Comparator<Meeting>() {
-            @Override
-            public int compare(Meeting o1, Meeting o2) {
-                if(o1.getEndTime().isAfter(o2.getEndTime())){
-                    return 1;
-                }else if(o1.getEndTime().isBefore(o2.getEndTime())){
-                    return -1;
-                }
-                return 0;
+        Comparator<Meeting> comp = (o1, o2) -> {
+            if(o1.getEndTime().isAfter(o2.getEndTime())){
+                return 1;
+            }else if(o1.getEndTime().isBefore(o2.getEndTime())){
+                return -1;
             }
+            return 0;
         };
 
         Collections.sort(calendar,comp);
