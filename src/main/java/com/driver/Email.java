@@ -42,7 +42,7 @@ public class Email {
                 oneLowerCase = true;
             } else if(curr >= 'A' && curr <='Z'){
                 oneUpperCase = true;
-            } else if(curr != ' '){
+            } else{
                 oneSpecialCharacter = true;
             }
         }
